@@ -15,7 +15,7 @@ bot = commands.Bot(command_prefix = settings['prefix'])
 # slash = interactions.Client(token = settings['prefix'])
 # slash = SlashCommand(bot, sync_commands = True)
 
-
+bot.remove_command('help')
 
 # COMMANDS
 @bot.command() 
@@ -23,6 +23,29 @@ async def ll(ctx):
     author = ctx.message.author 
 
     await ctx.send(f'марк лох')
+
+
+
+@bot.command() 
+async def rex(ctx): 
+    author = ctx.message.author 
+
+    await ctx.send(f'<@!781577827043508255>')
+
+@bot.command() 
+async def cmd(ctx): 
+    author = ctx.message.author 
+
+    await ctx.send(f"""Here all my commands: 
+    **https://bit.ly/cmd-kizure**""")
+
+@bot.command() 
+async def help(ctx): 
+    author = ctx.message.author 
+
+    await ctx.send(f"""Here all my commands: 
+    **https://bit.ly/cmd-kizure**""")
+
 
 
  
@@ -131,18 +154,6 @@ async def hug(ctx, member: discord.Member):
 
 HIT = ["https://c.tenor.com/mKX_7m0GsVAAAAAC/anime-blends.gif", "https://c.tenor.com/1T5bgBYtMgUAAAAC/head-hit-anime.gif", "https://c.tenor.com/BoYBoopIkBcAAAAC/anime-smash.gif", "https://c.tenor.com/6a42QlkVsCEAAAAd/anime-punch.gif", "https://c.tenor.com/SwMgGqBirvcAAAAC/saki-saki-kanojo-mo-kanojo.gif"]
 
-# @bot.command()
-# async def hit(ctx, member: discord.Member):
-  #  link = random.choice(HIT)
-  #  response = requests.get(random.choice(HIT)) 
-   # json_data = json.loads(response.text) 
-
-  #  author_name = ctx.message.author.name
-  #  embed = discord.Embed(color = 0xad4458, title =  f'{author_name} вдарив {member.name}') 
-  #  embed.set_image(link) 
-  #  await ctx.send(embed = embed)
-
-
 
 @bot.command()
 async def hit(ctx, member: discord.Member):
@@ -183,12 +194,18 @@ async def kiss(ctx, member: discord.Member):
 from asyncio import sleep
 @bot.event
 async def on_ready():
-    print("Ready. Kizure. <3")
+    print("───────────────── • ─────────────────")
+    print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀Ready. Kizure. <3")
+    print("⠀⠀Login in", "'", settings['id'], "'", "id")
+    print("⠀⠀⠀⠀⠀⠀", settings['site'])
+    print("───────────────── • ─────────────────")
     while True:
-        await bot.change_presence(status=discord.Status.online,activity=discord.Game("Слава Україні! | coming soon"))
-        await sleep(10)
-        await bot.change_presence(status=discord.Status.idle,activity=discord.Activity(type=discord.ActivityType.watching, name="for food."))
-        await sleep(10)
+        await bot.change_presence(status=discord.Status.online,activity=discord.Game("Слава Україні!"))
+        await sleep(20)
+        await bot.change_presence(status=discord.Status.idle,activity=discord.Game("Minecraft"))
+        await sleep(20)
+        await bot.change_presence(status=discord.Status.dnd,activity=discord.Game("k.help"))
+        await sleep(20)
 
 
 bot.run(settings['token'])
