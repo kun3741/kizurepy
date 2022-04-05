@@ -272,6 +272,38 @@ async def cry(ctx):
     await ctx.send(embed=embed)
 
 
+OFF = ["https://c.tenor.com/jO-mtNtBlZoAAAAC/kakashi-naruto.gif",
+"https://c.tenor.com/uDviGvD1FKAAAAAC/nyochio-d4dj.gif",
+"https://c.tenor.com/2UWe-Pc88UgAAAAM/kaguya-sama-love-is-war-chika.gif",
+"https://c.tenor.com/V4dFYtVXSpcAAAAC/anime.gif",
+"https://c.tenor.com/uipbyAqs5rEAAAAC/anime-anime-glasses.gif",
+"https://c.tenor.com/ENxZV2Og3oIAAAAC/glowing-eyes-death-glare.gif",
+]
+
+@bot.command(name='off', description='Урив\n')
+async def off(ctx, member: discord.Member):
+
+    embed = discord.Embed(title="**{1}** **урив(-ла)** **{0}**!".format(member.name, ctx.message.author.name), color = 0xad4458)
+
+    embed.set_image(url = random.choice(OFF))
+    await ctx.send(embed=embed)
+
+
+FCK = ["https://c.tenor.com/Uy1leQP4pyoAAAAC/anime-fuck-you.gif",
+"https://c.tenor.com/BJHzwmUeXVwAAAAC/fuck-u.gif",
+"https://c.tenor.com/d6ZFvbZsrKEAAAAC/fuck-bye.gif",
+"https://c.tenor.com/BBtu3YU-z80AAAAC/kawaii-anime.gif",
+"https://c.tenor.com/MB3r9XG_oJoAAAAC/schools-outfor-summer-anime.gif",
+]
+
+
+@bot.command(name='fck', description='Послати\n')
+async def fck(ctx, member: discord.Member):
+
+    embed = discord.Embed(title="**{1}** **послав(-ла)** **{0}**!".format(member.name, ctx.message.author.name), color = 0xad4458)
+
+    embed.set_image(url = random.choice(FCK))
+    await ctx.send(embed=embed)
 
 
 
