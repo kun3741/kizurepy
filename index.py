@@ -307,6 +307,17 @@ async def fck(ctx, member: discord.Member):
 
 
 
+
+@bot.command()
+async def avatar(ctx, member: discord.Member  = None):
+    if member == None:
+        member = ctx.author
+    embed = discord.Embed(color = 0xad4458, title = f"Аватар {member.name}")
+    embed.set_image(url = member.avatar_url)
+    await ctx.send(embed = embed)    
+    
+    
+
 @bot.command(name='8ball', description='Кулька передбачувань\n')
 async def _8ball(ctx, question):
     icon_url = 'https://i.imgur.com/XhNqADi.png'
