@@ -18,6 +18,25 @@ bot = commands.Bot(command_prefix = settings['prefix'])
 bot.remove_command('help')
 
 # COMMANDS
+
+
+@bot.command(name='ping', description="Перевірка бота")
+async def ping(ctx):
+    ping = bot.ws.latency
+    embed = discord.Embed(description="Loading...", colour=(0xad4458))
+    msg = await ctx.send(embed=embed)
+    await sleep(0.3)
+    await msg.edit(embed=embed)
+    embed.set_image(url = 'https://imgur.com/a/C4p6CV5')
+    await sleep(1)
+    await msg.edit(embed=embed)
+    await sleep(1)
+    embed = discord.Embed(description=f'Pong! `{ping * 1000:.0f}ms` :ping_pong:', colour=(0xad4458))
+    await msg.edit(embed=embed)
+    print(f'[Logs] Пінг == {ping * 1000:.0f}ms | ping')
+    
+    
+    
 @bot.command() 
 async def ll(ctx): 
     author = ctx.message.author 
