@@ -472,7 +472,11 @@ async def _8ball(ctx, question):
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | 8ball |', {fortune} ) 
 
-BEN = ["https://tenor.com/view/talking-ben-yes-gif-25061537", "https://tenor.com/view/no-gif-24966265","https://tenor.com/bRjOR.gif","https://tenor.com/bQU1N.gif"]
+BEN = ["https://c.tenor.com/x2u_MyapWvcAAAAM/no.gif",
+"https://c.tenor.com/6St4vNHkyrcAAAAM/yes.gif",
+"https://c.tenor.com/agrQMQjQTzgAAAAM/talking-ben-laugh.gif",
+"https://c.tenor.com/aomZLSiXCQ8AAAAM/ugh.gif",
+]
 
 @bot.command(name='ben', description='ben\n')
 async def ben(ctx, question):
