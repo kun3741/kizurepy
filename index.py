@@ -472,6 +472,19 @@ async def _8ball(ctx, question):
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | 8ball |', {fortune} ) 
 
+BEN = ["https://tenor.com/view/talking-ben-yes-gif-25061537", "https://tenor.com/view/no-gif-24966265","https://tenor.com/bRjOR.gif","https://tenor.com/bQU1N.gif"]
+
+@bot.command(name='ben', description='ben\n')
+async def ben(ctx, question):
+
+    embed = discord.Embed(title=f'**{ctx.author.name}, Бен каже...**'.format(), color = 0xff4d94)
+
+    embed.set_image(url = random.choice(BEN))
+    await ctx.send(embed=embed)
+    author = ctx.message.author
+    guild_name = ctx.guild.name
+    print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | ben' )
+
 
 #@bot.command()
 #async def hentai(ctx):
