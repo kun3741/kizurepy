@@ -8,8 +8,6 @@ import os
 from discord.utils import get
 from discord import FFmpegPCMAudio
 from os import system
-import youtube_dl
-from youtube_dl import YoutubeDL
 from asyncio import sleep
 import asyncio
 import functools
