@@ -17,9 +17,7 @@ import random
 import asyncio
 from discord import Activity, ActivityType
 from async_timeout import timeout
-import discord_slash
-from discord_slash import SlashCommand
-from discord_slash.utils.manage_commands import create_option
+
 
 
 
