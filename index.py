@@ -25,7 +25,7 @@ from async_timeout import timeout
 # PREFIX
 bot = commands.Bot(command_prefix = settings['prefix'], ntents=discord.Intents.all())
 # slash = interactions.Client(token = settings['prefix']
-slash = SlashCommand(bot, sync_commands = True)
+# slash = SlashCommand(bot, sync_commands = True)
 
 @bot.command(name='ping', description="Перевірка бота")
 async def ping(ctx):
