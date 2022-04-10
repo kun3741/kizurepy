@@ -26,20 +26,20 @@ bot = commands.Bot(command_prefix = settings['prefix'], ntents=discord.Intents.a
 # slash = interactions.Client(token = settings['prefix']
 #slash = SlashCommand(bot, sync_commands = True)
 
-@bot.command(name='ping', description="Перевірка бота")
-async def ping(ctx):
-    ping = bot.ws.latency
-    embed = discord.Embed(description="Loading...", colour=(0xff4d94))
-    msg = await ctx.send(embed=embed)
-    await sleep(0.3)
-    await msg.edit(embed=embed)
-    embed.set_image(url = 'https://imgur.com/a/C4p6CV5')
-    await sleep(1)
-    await msg.edit(embed=embed)
-    await sleep(1)
-    embed = discord.Embed(description=f'Pong! `{ping * 1000:.0f}ms` :ping_pong:', colour=(0xff4d94))
-    await msg.edit(embed=embed)
-    print(f'[Logs] Пінг == {ping * 1000:.0f}ms | ping')
+#@bot.command(name='ping', description="Перевірка бота")
+#async def ping(ctx):
+  #  ping = bot.ws.latency
+   # embed = discord.Embed(description="Loading...", colour=(0xff4d94))
+  #  msg = await ctx.send(embed=embed)
+  #  await sleep(0.3)
+  #  await msg.edit(embed=embed)
+   # embed.set_image(url = 'https://imgur.com/a/C4p6CV5')
+  #  await sleep(1)
+   # await msg.edit(embed=embed)
+   # await sleep(1)
+  #  embed = discord.Embed(description=f'Pong! `{ping * 1000:.0f}ms` :ping_pong:', colour=(0xff4d94))
+   # await msg.edit(embed=embed)
+  #  print(f'[Logs] Пінг == {ping * 1000:.0f}ms | ping')
    
 
 
@@ -50,25 +50,8 @@ async def ping(ctx):
 bot.remove_command('help')
 
 # COMMANDS
-@bot.command() 
-async def ll(ctx): 
-    author = ctx.message.author
-    guild_name = ctx.guild.name
-    guild_name = ctx.guild.name 
-
-    await ctx.send(f'марк лох')
-
-
-
-@bot.command() 
-async def rex(ctx): 
-    author = ctx.message.author
-    guild_name = ctx.guild.name
-    
-
-    await ctx.send(f'<@!781577827043508255>')
-    print(f'[Logs] ', author, 'used commnand on', guild_name, ' | rex' )
-
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+#cmd
 @bot.command() 
 async def cmd(ctx): 
     author = ctx.message.author
@@ -79,6 +62,8 @@ async def cmd(ctx):
     **https://bit.ly/cmd-kizure**""")
     print(f'[Logs] ', author, 'used commnand on', guild_name, ' | cmd' )
 
+
+#help
 @bot.command() 
 async def help(ctx): 
     author = ctx.message.author
@@ -89,10 +74,7 @@ async def help(ctx):
     print(f'[Logs] ', author, 'used commnand on', guild_name, ' | help' )
 
 
-
- 
-
-
+#rusboat
 @bot.command()
 async def rusboat(ctx):
     author = ctx.message.author
@@ -104,6 +86,7 @@ async def rusboat(ctx):
     print(f'[Logs] ', author, 'used commnand on', guild_name, ' | rusboat' )
     
 
+#fox
 @bot.command()
 async def fox(ctx):
     author = ctx.message.author
@@ -116,6 +99,8 @@ async def fox(ctx):
     await ctx.send(embed = embed)
     print(f'[Logs] ', author, 'used commnand on', guild_name, ' | fox' ) 
 
+
+#dog
 @bot.command()
 async def dog(ctx):
     author = ctx.message.author
@@ -128,6 +113,8 @@ async def dog(ctx):
     await ctx.send(embed = embed) 
     print(f'[Logs] ', author, 'used commnand on', guild_name, ' | dog' ) 
 
+
+#cat
 @bot.command()
 async def cat(ctx):
     author = ctx.message.author
@@ -142,6 +129,7 @@ async def cat(ctx):
     print(f'[Logs] ', author, 'used commnand on', guild_name, ' | cat' )  
 
 
+#bird
 @bot.command()
 async def bird(ctx):
     author = ctx.message.author
@@ -154,6 +142,8 @@ async def bird(ctx):
     await ctx.send(embed = embed) 
     print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | bird' )
 
+
+#panda
 @bot.command()
 async def panda(ctx):
     response = requests.get('https://some-random-api.ml/img/panda') 
@@ -166,6 +156,8 @@ async def panda(ctx):
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | panda' ) 
 
+
+#rpanda
 @bot.command()
 async def rpanda(ctx):
     response = requests.get('https://some-random-api.ml/img/red_panda') 
@@ -178,6 +170,8 @@ async def rpanda(ctx):
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | rpanda' ) 
 
+
+#pat
 @bot.command()
 async def pat(ctx, member: discord.Member):
     response = requests.get('https://some-random-api.ml/animu/pat') 
@@ -191,6 +185,8 @@ async def pat(ctx, member: discord.Member):
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | pat' ) 
 
+
+#hug
 @bot.command()
 async def hug(ctx, member: discord.Member):
     response = requests.get('https://some-random-api.ml/animu/hug') 
@@ -204,6 +200,8 @@ async def hug(ctx, member: discord.Member):
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | hug' ) 
 
+
+#hit
 HIT = ["https://c.tenor.com/mKX_7m0GsVAAAAAC/anime-blends.gif", 
 "https://c.tenor.com/1T5bgBYtMgUAAAAC/head-hit-anime.gif", 
 "https://c.tenor.com/BoYBoopIkBcAAAAC/anime-smash.gif", 
@@ -223,6 +221,7 @@ async def hit(ctx, member: discord.Member):
     print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | hit' ) 
 
 
+#kiss
 KISS = ["https://c.tenor.com/woA_lrIFFAIAAAAC/girl-anime.gif", 
 "https://c.tenor.com/yoMKK29AMQsAAAAC/kiss-toradora.gif", 
 "https://c.tenor.com/I8kWjuAtX-QAAAAC/anime-ano.gif", 
@@ -243,6 +242,8 @@ async def kiss(ctx, member: discord.Member):
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | kiss' ) 
 
+
+#smoke
 SMOKE = ["https://c.tenor.com/RL5ROk4bVNgAAAAd/billy-herrington-smoke.gif",
 "https://c.tenor.com/9tLxGl8P7aoAAAAC/gachi-billy-herington.gif",
 "https://c.tenor.com/QPLc-5gr3N8AAAAC/smoke-cigarette.gif", 
@@ -268,6 +269,7 @@ async def smoke(ctx):
     print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | smoke' ) 
 
 
+#sad
 SAD = ["https://c.tenor.com/mSqEgKfI3uUAAAAd/my-hero-academia-anime.gif",
 "https://c.tenor.com/dWkr9_iQL8QAAAAC/anime-dan-machi.gif",
 "https://c.tenor.com/p0hJkNOIMukAAAAd/anime-sad.gif",
@@ -291,6 +293,7 @@ async def sad(ctx):
     print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | sad' ) 
 
 
+#smile
 SMILE = ["https://c.tenor.com/3fAZZncIHDQAAAAC/smile-anime.gif",
 "https://c.tenor.com/9BvbcMZFCCMAAAAC/anime-cute.gif",
 "https://c.tenor.com/9BvbcMZFCCMAAAAC/anime-cute.gif",
@@ -318,6 +321,7 @@ async def smile(ctx):
     print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | smile' ) 
 
 
+#cry
 CRY = ["https://c.tenor.com/XBWh-szFwDQAAAAC/crying-naruto-crying.gif",
 "https://c.tenor.com/9tOtlaOMTP8AAAAC/sad-cry.gif",
 "https://c.tenor.com/kQeYDKr95h4AAAAC/anime-crying-crying-anime.gif",
@@ -341,7 +345,7 @@ async def cry(ctx):
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | cry' ) 
 
-
+#off
 OFF = ["https://c.tenor.com/jO-mtNtBlZoAAAAC/kakashi-naruto.gif",
 "https://c.tenor.com/uDviGvD1FKAAAAAC/nyochio-d4dj.gif",
 "https://c.tenor.com/2UWe-Pc88UgAAAAM/kaguya-sama-love-is-war-chika.gif",
@@ -362,6 +366,7 @@ async def off(ctx, member: discord.Member):
     print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | off' ) 
 
 
+#fck
 FCK = ["https://c.tenor.com/Uy1leQP4pyoAAAAC/anime-fuck-you.gif",
 "https://c.tenor.com/BJHzwmUeXVwAAAAC/fuck-u.gif",
 "https://c.tenor.com/d6ZFvbZsrKEAAAAC/fuck-bye.gif",
@@ -381,7 +386,7 @@ async def fck(ctx, member: discord.Member):
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | fck' ) 
 
-
+#avatar
 @bot.command()
 async def avatar(ctx, member: discord.Member  = None):
     if member == None:
@@ -393,7 +398,7 @@ async def avatar(ctx, member: discord.Member  = None):
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | avatar' ) 
 
-
+#kill
 KILL = [
 "https://c.tenor.com/-UbmVOLixPcAAAAC/killing-anime-girl.gif",
 "https://c.tenor.com/py184W4488kAAAAC/anime.gif",
@@ -420,6 +425,8 @@ async def kill(ctx, member: discord.Member):
     print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | kill' ) 
 
 
+#eat
+
 EAT = ["https://c.tenor.com/4g4c7CE1jkIAAAAd/eat-eats.gif",
 "https://c.tenor.com/K-46u3QTNnUAAAAC/anime-food.gif",
 "https://c.tenor.com/gz_wbCdkO4AAAAAC/dragon-ball-z-goku.gif",
@@ -444,7 +451,7 @@ async def eat(ctx):
     print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | eat' ) 
 
 
-
+#8ball
 @bot.command(name='8ball', description='Кулька передбачувань\n')
 async def _8ball(ctx, question):
     icon_url = 'https://i.imgur.com/XhNqADi.png'
@@ -472,6 +479,7 @@ async def _8ball(ctx, question):
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | 8ball |', {fortune} ) 
 
+#ben
 BEN = ["https://c.tenor.com/x2u_MyapWvcAAAAM/no.gif",
 "https://c.tenor.com/6St4vNHkyrcAAAAM/yes.gif",
 "https://c.tenor.com/agrQMQjQTzgAAAAM/talking-ben-laugh.gif",
@@ -480,14 +488,16 @@ BEN = ["https://c.tenor.com/x2u_MyapWvcAAAAM/no.gif",
 
 @bot.command(name='ben', description='ben\n')
 async def ben(ctx, question):
-
     embed = discord.Embed(title=f'**{ctx.author.name}, Бен каже...**'.format(), color = 0xff4d94)
-
     embed.set_image(url = random.choice(BEN))
     await ctx.send(embed=embed)
+
     author = ctx.message.author
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | ben' )
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 
 
 #@bot.command()
