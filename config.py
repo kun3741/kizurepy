@@ -3,5 +3,5 @@ settings = {
     'bot': 'Kizure',
     'id': 915498910087266375,
     'prefix': 'k.',
-    'site': 'https://bit.ly/cmd-kizure/'
+    'site': 'https://bit.ly/cmd-kizure'
 }
