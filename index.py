@@ -60,7 +60,7 @@ async def cmd(ctx):
 
     await ctx.send(f"""Here all my commands: 
     **https://bit.ly/cmd-kizure**""")
-    print(f'[Logs] ', author, 'used commnand on', guild_name, ' | cmd' )
+    print(f'[Logs] ', author, 'used command on', guild_name, ' | cmd' )
 
 
 #help
@@ -71,7 +71,7 @@ async def help(ctx):
 
     await ctx.send(f"""Here all my commands: 
     **https://bit.ly/cmd-kizure**""")
-    print(f'[Logs] ', author, 'used commnand on', guild_name, ' | help' )
+    print(f'[Logs] ', author, 'used command on', guild_name, ' | help' )
 
 
 #rusboat
@@ -83,7 +83,7 @@ async def rusboat(ctx):
 
     embed.set_image(url = "https://st.kashalot.com/img/club/2022/02/28/62-558f5baf-club.png")
     await ctx.send(embed = embed)
-    print(f'[Logs] ', author, 'used commnand on', guild_name, ' | rusboat' )
+    print(f'[Logs] ', author, 'used command on', guild_name, ' | rusboat' )
     
 
 #fox
@@ -97,7 +97,7 @@ async def fox(ctx):
     embed = discord.Embed(color = 0xff4d94, title = 'Лисичка!🦊') 
     embed.set_image(url = json_data['link']) 
     await ctx.send(embed = embed)
-    print(f'[Logs] ', author, 'used commnand on', guild_name, ' | fox' ) 
+    print(f'[Logs] ', author, 'used command on', guild_name, ' | fox' ) 
 
 
 #dog
@@ -111,7 +111,7 @@ async def dog(ctx):
     embed = discord.Embed(color = 0xff4d94, title = 'Песик!🐶') 
     embed.set_image(url = json_data['link']) 
     await ctx.send(embed = embed) 
-    print(f'[Logs] ', author, 'used commnand on', guild_name, ' | dog' ) 
+    print(f'[Logs] ', author, 'used command on', guild_name, ' | dog' ) 
 
 
 #cat
@@ -126,7 +126,7 @@ async def cat(ctx):
     embed = discord.Embed(color = 0xff4d94, title = 'Котик!😼', description = '\u200b') 
     embed.set_image(url = json_data['link']) 
     await ctx.send(embed = embed)
-    print(f'[Logs] ', author, 'used commnand on', guild_name, ' | cat' )  
+    print(f'[Logs] ', author, 'used command on', guild_name, ' | cat' )  
 
 
 #bird
@@ -140,7 +140,7 @@ async def bird(ctx):
     embed = discord.Embed(color = 0xff4d94, title = 'Пташечка!🐦') 
     embed.set_image(url = json_data['link']) 
     await ctx.send(embed = embed) 
-    print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | bird' )
+    print(f'[Logs] ', author, 'used command, on ', guild_name, ' | bird' )
 
 
 #panda
@@ -154,7 +154,7 @@ async def panda(ctx):
     await ctx.send(embed = embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
-    print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | panda' ) 
+    print(f'[Logs] ', author, 'used command, on ', guild_name, ' | panda' ) 
 
 
 #rpanda
@@ -168,7 +168,7 @@ async def rpanda(ctx):
     await ctx.send(embed = embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
-    print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | rpanda' ) 
+    print(f'[Logs] ', author, 'used command, on ', guild_name, ' | rpanda' ) 
 
 
 #pat
@@ -183,7 +183,7 @@ async def pat(ctx, member: discord.Member):
     await ctx.send(embed = embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
-    print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | pat' ) 
+    print(f'[Logs] ', author, 'used command, on ', guild_name, ' | pat' ) 
 
 
 #hug
@@ -198,7 +198,7 @@ async def hug(ctx, member: discord.Member):
     await ctx.send(embed = embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
-    print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | hug' ) 
+    print(f'[Logs] ', author, 'used command, on ', guild_name, ' | hug' ) 
 
 
 #hit
@@ -218,7 +218,7 @@ async def hit(ctx, member: discord.Member):
     await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
-    print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | hit' ) 
+    print(f'[Logs] ', author, 'used command, on ', guild_name, ' | hit' ) 
 
 
 #kiss
@@ -240,7 +240,7 @@ async def kiss(ctx, member: discord.Member):
     await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
-    print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | kiss' ) 
+    print(f'[Logs] ', author, 'used command, on ', guild_name, ' | kiss' ) 
 
 
 #smoke
@@ -266,7 +266,7 @@ async def smoke(ctx):
     await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
-    print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | smoke' ) 
+    print(f'[Logs] ', author, 'used command, on ', guild_name, ' | smoke' ) 
 
 
 #sad
@@ -290,7 +290,7 @@ async def sad(ctx):
     await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
-    print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | sad' ) 
+    print(f'[Logs] ', author, 'used command, on ', guild_name, ' | sad' ) 
 
 
 #smile
@@ -318,7 +318,7 @@ async def smile(ctx):
     await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
-    print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | smile' ) 
+    print(f'[Logs] ', author, 'used command, on ', guild_name, ' | smile' ) 
 
 
 #cry
@@ -343,7 +343,7 @@ async def cry(ctx):
     await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
-    print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | cry' ) 
+    print(f'[Logs] ', author, 'used command, on ', guild_name, ' | cry' ) 
 
 #off
 OFF = ["https://c.tenor.com/jO-mtNtBlZoAAAAC/kakashi-naruto.gif",
@@ -363,7 +363,7 @@ async def off(ctx, member: discord.Member):
     await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
-    print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | off' ) 
+    print(f'[Logs] ', author, 'used command, on ', guild_name, ' | off' ) 
 
 
 #fck
@@ -384,7 +384,7 @@ async def fck(ctx, member: discord.Member):
     await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
-    print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | fck' ) 
+    print(f'[Logs] ', author, 'used command, on ', guild_name, ' | fck' ) 
 
 #avatar
 @bot.command()
@@ -396,7 +396,7 @@ async def avatar(ctx, member: discord.Member  = None):
     await ctx.send(embed = embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
-    print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | avatar' ) 
+    print(f'[Logs] ', author, 'used command, on ', guild_name, ' | avatar' ) 
 
 #kill
 KILL = [
@@ -422,7 +422,7 @@ async def kill(ctx, member: discord.Member):
     await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
-    print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | kill' ) 
+    print(f'[Logs] ', author, 'used command, on ', guild_name, ' | kill' ) 
 
 
 #eat
@@ -448,7 +448,7 @@ async def eat(ctx):
     await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
-    print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | eat' ) 
+    print(f'[Logs] ', author, 'used command, on ', guild_name, ' | eat' ) 
 
 
 #8ball
@@ -477,7 +477,7 @@ async def _8ball(ctx, question):
     await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
-    print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | 8ball |', {fortune} ) 
+    print(f'[Logs] ', author, 'used command, on ', guild_name, ' | 8ball |', {fortune} ) 
 
 #ben
 BEN = ["https://c.tenor.com/x2u_MyapWvcAAAAM/no.gif",
@@ -494,7 +494,7 @@ async def ben(ctx, question):
 
     author = ctx.message.author
     guild_name = ctx.guild.name
-    print(f'[Logs] ', author, 'used commnand, on ', guild_name, ' | ben' )
+    print(f'[Logs] ', author, 'used command, on ', guild_name, ' | ben' )
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
