@@ -17,6 +17,7 @@ import random
 import asyncio
 from discord import Activity, ActivityType
 from async_timeout import timeout
+from random import randint
 
 
 
@@ -450,6 +451,31 @@ async def eat(ctx):
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used command, on ', guild_name, ' | eat' ) 
 
+#dance
+
+DANCE = ["https://c.tenor.com/2vRn7mgoMRMAAAAd/cute-anime-dance.gif",
+"https://c.tenor.com/OZ6SyQ1S6dsAAAAd/pompo-pompo-the-cinephile.gif",
+"https://c.tenor.com/Lkyf9b8203YAAAAC/dragon-maid-kanna-fite.gif",
+"https://c.tenor.com/-1YkyYLOuJoAAAAM/rwby-anime.gif",
+"https://media0.giphy.com/media/W6dHvprT7oks6BpX5R/giphy.gif?cid=ecf05e47uvxeilo0nh38osspc4mmvo1e2qbzlfk0zu9ufjru&rid=giphy.gif&ct=g",
+"https://media1.giphy.com/media/b7l5cvG94cqo8/giphy.gif?cid=ecf05e473hxmjbboh2050qunqdqu3bniqk1mbhuw7dhznhl3&rid=giphy.gif&ct=g",
+"https://c.tenor.com/GYjYgE-UCEgAAAAd/shinobu-kocho-dance.gif",
+"https://c.tenor.com/tNulr7DcsZAAAAAC/yuru-yuri-kyoko.gif",
+"https://c.tenor.com/QwNUEvvKxY8AAAAM/happy-loli.gif"
+]
+
+@bot.command(name='dance', description='Танцюй\n')
+async def dance(ctx):
+
+    embed = discord.Embed(title=f'**{ctx.author.name} танцює!**'.format(), color = 0xff4d94)
+
+    embed.set_image(url = random.choice(DANCE))
+    await ctx.send(embed=embed)
+    author = ctx.message.author
+    guild_name = ctx.guild.name
+    print(f'[Logs] ', author, 'used command, on ', guild_name, ' | dance' ) 
+
+
 
 #8ball
 @bot.command(name='8ball', description='Кулька передбачувань\n')
@@ -495,6 +521,21 @@ async def ben(ctx, question):
     author = ctx.message.author
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used command, on ', guild_name, ' | ben' )
+
+
+#numb
+
+@bot.command(name='numb', description='Рандомне число\n')
+async def numb(ctx):
+    random_number = str(randint(0, 1000))
+    embed = discord.Embed(title=f'**{ctx.author.name}, твоє рандомне число: **' + random_number, color = 0xff4d94)
+    await ctx.send(embed=embed)
+
+    author = ctx.message.author
+    guild_name = ctx.guild.name
+    print(f'[Logs] ', author, 'used command, on ', guild_name, ' | numb' )
+
+
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
