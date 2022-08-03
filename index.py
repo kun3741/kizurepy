@@ -18,7 +18,8 @@ import asyncio
 from discord import Activity, ActivityType
 from async_timeout import timeout
 from random import randint
-
+import time
+from datetime import timedelta, datetime, date
 
 
 
@@ -27,20 +28,15 @@ bot = commands.Bot(command_prefix = settings['prefix'], ntents=discord.Intents.a
 # slash = interactions.Client(token = settings['prefix']
 #slash = SlashCommand(bot, sync_commands = True)
 
-#@bot.command(name='ping', description="Перевірка бота")
-#async def ping(ctx):
-  #  ping = bot.ws.latency
-   # embed = discord.Embed(description="Loading...", colour=(0xff4d94))
-  #  msg = await ctx.send(embed=embed)
-  #  await sleep(0.3)
-  #  await msg.edit(embed=embed)
-   # embed.set_image(url = 'https://imgur.com/a/C4p6CV5')
-  #  await sleep(1)
-   # await msg.edit(embed=embed)
-   # await sleep(1)
-  #  embed = discord.Embed(description=f'Pong! `{ping * 1000:.0f}ms` :ping_pong:', colour=(0xff4d94))
-   # await msg.edit(embed=embed)
-  #  print(f'[Logs] Пінг == {ping * 1000:.0f}ms | ping')
+@bot.command(name='ping', description="Перевірка бота")
+async def ping(ctx):
+    ping = bot.ws.latency
+    embed = discord.Embed(description="Loading...", colour=(0xff4d94))
+    msg = await ctx.send(embed=embed)
+    await sleep(0.3)
+    embed = discord.Embed(description=f'Pong! `{ping * 1000:.0f}ms` :ping_pong:', colour=(0xff4d94))
+    await msg.edit(embed=embed)
+    print(f'[Logs] Пінг == {ping * 1000:.0f}ms | ping')
    
 
 
@@ -83,6 +79,7 @@ async def rusboat(ctx):
     embed = discord.Embed(title="🇺🇦", color = 0xff4d94)
 
     embed.set_image(url = "https://st.kashalot.com/img/club/2022/02/28/62-558f5baf-club.png")
+    embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
     await ctx.send(embed = embed)
     print(f'[Logs] ', author, 'used command on', guild_name, ' | rusboat' )
     
@@ -97,6 +94,7 @@ async def fox(ctx):
 
     embed = discord.Embed(color = 0xff4d94, title = 'Лисичка!🦊') 
     embed.set_image(url = json_data['link']) 
+    embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
     await ctx.send(embed = embed)
     print(f'[Logs] ', author, 'used command on', guild_name, ' | fox' ) 
 
@@ -111,6 +109,7 @@ async def dog(ctx):
 
     embed = discord.Embed(color = 0xff4d94, title = 'Песик!🐶') 
     embed.set_image(url = json_data['link']) 
+    embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
     await ctx.send(embed = embed) 
     print(f'[Logs] ', author, 'used command on', guild_name, ' | dog' ) 
 
@@ -125,7 +124,8 @@ async def cat(ctx):
    
 
     embed = discord.Embed(color = 0xff4d94, title = 'Котик!😼', description = '\u200b') 
-    embed.set_image(url = json_data['link']) 
+    embed.set_image(url = json_data['link'])
+    embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name)) 
     await ctx.send(embed = embed)
     print(f'[Logs] ', author, 'used command on', guild_name, ' | cat' )  
 
@@ -139,7 +139,8 @@ async def bird(ctx):
     json_data = json.loads(response.text) 
 
     embed = discord.Embed(color = 0xff4d94, title = 'Пташечка!🐦') 
-    embed.set_image(url = json_data['link']) 
+    embed.set_image(url = json_data['link'])
+    embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name)) 
     await ctx.send(embed = embed) 
     print(f'[Logs] ', author, 'used command, on ', guild_name, ' | bird' )
 
@@ -151,7 +152,8 @@ async def panda(ctx):
     json_data = json.loads(response.text) 
 
     embed = discord.Embed(color = 0xff4d94, title = 'Панда!🐼') 
-    embed.set_image(url = json_data['link']) 
+    embed.set_image(url = json_data['link'])
+    embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name)) 
     await ctx.send(embed = embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
@@ -165,7 +167,8 @@ async def rpanda(ctx):
     json_data = json.loads(response.text) 
 
     embed = discord.Embed(color = 0xff4d94, title = 'Червона панда!🐻') 
-    embed.set_image(url = json_data['link']) 
+    embed.set_image(url = json_data['link'])
+    embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name)) 
     await ctx.send(embed = embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
@@ -174,14 +177,18 @@ async def rpanda(ctx):
 
 #pat
 @bot.command()
-async def pat(ctx, member: discord.Member):
+async def pat(ctx, member: discord.Member = None):
     response = requests.get('https://some-random-api.ml/animu/pat') 
     json_data = json.loads(response.text) 
 
     author_name = ctx.message.author.name
-    embed = discord.Embed(color = 0xff4d94, title =  f'{author_name} погладив(-ла) {member.name}!') 
-    embed.set_image(url = json_data['link']) 
-    await ctx.send(embed = embed)
+    if member == None:
+        await ctx.reply(f":dizzy_face: Error, type a name. ")
+    else:
+        embed = discord.Embed(color = 0xff4d94, title =  f'{author_name} погладив(-ла) {member.name}!') 
+        embed.set_image(url = json_data['link']) 
+        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
+        await ctx.send(embed = embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used command, on ', guild_name, ' | pat' ) 
@@ -189,14 +196,18 @@ async def pat(ctx, member: discord.Member):
 
 #hug
 @bot.command()
-async def hug(ctx, member: discord.Member):
+async def hug(ctx, member: discord.Member = None):
     response = requests.get('https://some-random-api.ml/animu/hug') 
     json_data = json.loads(response.text) 
 
     author_name = ctx.message.author.name
-    embed = discord.Embed(color = 0xff4d94, title =  f'{author_name} обняв(-ла) {member.name}!') 
-    embed.set_image(url = json_data['link'])
-    await ctx.send(embed = embed)
+    if member == None:
+        await ctx.reply(f":dizzy_face: Error, type a name. ")
+    else:
+        embed = discord.Embed(color = 0xff4d94, title =  f'{author_name} обняв(-ла) {member.name}!') 
+        embed.set_image(url = json_data['link'])
+        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
+        await ctx.send(embed = embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used command, on ', guild_name, ' | hug' ) 
@@ -211,12 +222,14 @@ HIT = ["https://c.tenor.com/mKX_7m0GsVAAAAAC/anime-blends.gif",
 
 
 @bot.command()
-async def hit(ctx, member: discord.Member):
-
-    embed = discord.Embed(title="**{1}** **вдарив(-ла)** **{0}**!".format(member.name, ctx.message.author.name), color = 0xff4d94)
-
-    embed.set_image(url = random.choice(HIT))
-    await ctx.send(embed=embed)
+async def hit(ctx, member: discord.Member = None):
+    if member == None:
+        await ctx.reply(f":dizzy_face: Error, type a name. ")
+    else:
+        embed = discord.Embed(title="**{1}** **вдарив(-ла)** **{0}**!".format(member.name, ctx.message.author.name), color = 0xff4d94)
+        embed.set_image(url = random.choice(HIT))
+        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
+        await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used command, on ', guild_name, ' | hit' ) 
@@ -233,12 +246,15 @@ KISS = ["https://c.tenor.com/woA_lrIFFAIAAAAC/girl-anime.gif",
 "https://c.tenor.com/TFD0r_HG6-0AAAAC/kiss.gif"]
 
 @bot.command()
-async def kiss(ctx, member: discord.Member):
+async def kiss(ctx, member: discord.Member = None):
+    if member == None:
+        await ctx.reply(f":dizzy_face: Error, type a name. ")
+    else:
+        embed = discord.Embed(title="**{1}** **поцілував(-ла)** **{0}**!".format(member.name, ctx.message.author.name), color = 0xff4d94)
 
-    embed = discord.Embed(title="**{1}** **поцілував(-ла)** **{0}**!".format(member.name, ctx.message.author.name), color = 0xff4d94)
-
-    embed.set_image(url = random.choice(KISS))
-    await ctx.send(embed=embed)
+        embed.set_image(url = random.choice(KISS))
+        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
+        await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used command, on ', guild_name, ' | kiss' ) 
@@ -264,6 +280,7 @@ async def smoke(ctx):
     embed = discord.Embed(title=f'**{ctx.author.name} закурив...** *може не треба?*'.format(), color = 0xff4d94)
 
     embed.set_image(url = random.choice(SMOKE))
+    embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
     await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
@@ -288,6 +305,7 @@ async def sad(ctx):
     embed = discord.Embed(title=f'**{ctx.author.name} сумує.**'.format(), color = 0xff4d94)
 
     embed.set_image(url = random.choice(SAD))
+    embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
     await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
@@ -316,6 +334,7 @@ async def smile(ctx):
     embed = discord.Embed(title=f'**{ctx.author.name} посміхається.**'.format(), color = 0xff4d94)
 
     embed.set_image(url = random.choice(SMILE))
+    embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
     await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
@@ -341,6 +360,7 @@ async def cry(ctx):
     embed = discord.Embed(title=f'**{ctx.author.name} плаче.**'.format(), color = 0xff4d94)
 
     embed.set_image(url = random.choice(CRY))
+    embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
     await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
@@ -356,12 +376,14 @@ OFF = ["https://c.tenor.com/jO-mtNtBlZoAAAAC/kakashi-naruto.gif",
 ]
 
 @bot.command(name='off', description='Урив\n')
-async def off(ctx, member: discord.Member):
-
-    embed = discord.Embed(title="**{1}** **урив(-ла)** **{0}**!".format(member.name, ctx.message.author.name), color = 0xff4d94)
-
-    embed.set_image(url = random.choice(OFF))
-    await ctx.send(embed=embed)
+async def off(ctx, member: discord.Member = None):
+    if member == None:
+        await ctx.reply(f":dizzy_face: Error, type a name. ")
+    else:    
+        embed = discord.Embed(title="**{1}** **урив(-ла)** **{0}**!".format(member.name, ctx.message.author.name), color = 0xff4d94)
+        embed.set_image(url = random.choice(OFF))
+        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
+        await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used command, on ', guild_name, ' | off' ) 
@@ -377,15 +399,19 @@ FCK = ["https://c.tenor.com/Uy1leQP4pyoAAAAC/anime-fuck-you.gif",
 
 
 @bot.command(name='fck', description='Послати\n')
-async def fck(ctx, member: discord.Member):
+async def fck(ctx, member: discord.Member = None):
+    if member == None:
+        await ctx.reply(f":dizzy_face: Error, type a name. ")
+    else:
+        embed = discord.Embed(title="**{1}** **послав(-ла)** **{0}**!".format(member.name, ctx.message.author.name), color = 0xff4d94)
 
-    embed = discord.Embed(title="**{1}** **послав(-ла)** **{0}**!".format(member.name, ctx.message.author.name), color = 0xff4d94)
-
-    embed.set_image(url = random.choice(FCK))
-    await ctx.send(embed=embed)
+        embed.set_image(url = random.choice(FCK))
+        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
+        await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used command, on ', guild_name, ' | fck' ) 
+
 
 #avatar
 @bot.command()
@@ -394,6 +420,7 @@ async def avatar(ctx, member: discord.Member  = None):
         member = ctx.author
     embed = discord.Embed(color = 0xff4d94, title = f"Аватар {member.name}")
     embed.set_image(url = member.avatar_url)
+    embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
     await ctx.send(embed = embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
@@ -415,12 +442,15 @@ KILL = [
 
 
 @bot.command(name='kill', description='Вбити\n')
-async def kill(ctx, member: discord.Member):
+async def kill(ctx, member: discord.Member = None):
+    if member == None:
+        await ctx.reply(f":dizzy_face: Error, type a name. ")
+    else:
+        embed = discord.Embed(title="**{1}** **вбив(-ла)** **{0}**!".format(member.name, ctx.message.author.name), color = 0xff4d94)
 
-    embed = discord.Embed(title="**{1}** **вбив(-ла)** **{0}**!".format(member.name, ctx.message.author.name), color = 0xff4d94)
-
-    embed.set_image(url = random.choice(KILL))
-    await ctx.send(embed=embed)
+        embed.set_image(url = random.choice(KILL))
+        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
+        await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used command, on ', guild_name, ' | kill' ) 
@@ -446,6 +476,7 @@ async def eat(ctx):
     embed = discord.Embed(title=f'**{ctx.author.name} їсть.** *смачного)*'.format(), color = 0xff4d94)
 
     embed.set_image(url = random.choice(EAT))
+    embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
     await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
@@ -470,6 +501,7 @@ async def dance(ctx):
     embed = discord.Embed(title=f'**{ctx.author.name} танцює!**'.format(), color = 0xff4d94)
 
     embed.set_image(url = random.choice(DANCE))
+    embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
     await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
@@ -500,6 +532,7 @@ async def _8ball(ctx, question):
     fortune = random.choice(responses)
     embed=discord.Embed(title="🎱Магічна кулька заговорила!🎱", color = 0xff4d94)
     embed.add_field(name=f'*{ctx.author.name}, кулька говорить...*', value=f'**{fortune}**')
+    embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
     await ctx.send(embed=embed)
     author = ctx.message.author
     guild_name = ctx.guild.name
@@ -516,6 +549,7 @@ BEN = ["https://c.tenor.com/x2u_MyapWvcAAAAM/no.gif",
 async def ben(ctx, question):
     embed = discord.Embed(title=f'**{ctx.author.name}, Бен каже...**'.format(), color = 0xff4d94)
     embed.set_image(url = random.choice(BEN))
+    embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
     await ctx.send(embed=embed)
 
     author = ctx.message.author
@@ -529,11 +563,18 @@ async def ben(ctx, question):
 async def numb(ctx):
     random_number = str(randint(0, 1000))
     embed = discord.Embed(title=f'**{ctx.author.name}, твоє рандомне число: **' + random_number, color = 0xff4d94)
+    embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
     await ctx.send(embed=embed)
+    
 
     author = ctx.message.author
     guild_name = ctx.guild.name
     print(f'[Logs] ', author, 'used command, on ', guild_name, ' | numb' )
+
+
+
+    
+
 
 
 
@@ -548,6 +589,7 @@ async def numb(ctx):
 #
  #   embed = discord.Embed(color = 0xff4d94, title = 'ух єбать') 
   #  embed.set_image(url = json_data['ukraine']) 
+ # embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
    # await ctx.send(embed = embed) 
 
 
