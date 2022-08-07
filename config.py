@@ -4,5 +4,5 @@ settings = {
     'id': 915498910087266375,
     'prefix': 'k.',
     'site': 'https://bit.ly/cmd-kizure',
-    'owner_id': '695558769530372157'
+    'owner_id': 695558769530372157
 }
