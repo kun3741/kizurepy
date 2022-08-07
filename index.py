@@ -58,6 +58,7 @@ async def on_ready():
     print("⠀⠀⠀⠀⠀⠀", settings['site'])
     print("───────────────── • ─────────────────")
     await sleep(0.7)
+    print("Total amount commands: 23")
     print("─────────────────────────────────────")
     while True:
         await bot.change_presence(status=discord.Status.online,activity=discord.Game("Слава Україні!"))
