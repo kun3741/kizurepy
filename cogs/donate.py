@@ -14,7 +14,7 @@ class donate(commands.Cog):
         embed = discord.Embed(color = 0xff4d94, title = '''Support me here:
         https://donatello.to/kun3741
     Or scan a QR-code.''')
-        embed.set_image(url = "https://media.discordapp.net/attachments/1005127125327687800/1005132430946091048/Screenshot_2022-08-05_at_18-17-04_kun3741.png")
+        embed.set_image(url = "https://images-ext-2.discordapp.net/external/X7o3Rql3oBqEl7LH3ZWY-Im4E3yHzVWCyiLzd7ev5nQ/https/i.imgur.com/KrFHwsr.png")
         embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
         await ctx.reply(embed=embed) 
         print(f'[Logs] ', author, 'used command on', guild_name, ' | donate' )
