@@ -16,7 +16,7 @@ class fox(commands.Cog):
 
         embed = discord.Embed(color = 0xff4d94, title = 'Лисичка!🦊') 
         embed.set_image(url = json_data['link']) 
-        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
+        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author))
         await ctx.reply(embed=embed)
         print(f'[Logs] ', author, 'used command on', guild_name, ' | fox' ) 
     
@@ -24,5 +24,5 @@ class fox(commands.Cog):
     async def on_ready(self):
         print("[Ready] fox")
 
-def setup(bot):
-    bot.add_cog(fox(bot))
+async def setup(bot):
+    await bot.add_cog(fox(bot))

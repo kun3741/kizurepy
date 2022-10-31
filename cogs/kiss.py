@@ -27,7 +27,7 @@ class kiss(commands.Cog):
 "https://c.tenor.com/TFD0r_HG6-0AAAAC/kiss.gif"]
             embed = discord.Embed(title="**{1}** **поцілував(-ла)** **{0}**!".format(member.name, ctx.message.author.name), color = 0xff4d94)
         embed.set_image(url = random.choice(KISS))
-        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
+        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author))
         await ctx.reply(embed=embed)
         author = ctx.message.author
         guild_name = ctx.guild.name
@@ -38,5 +38,5 @@ class kiss(commands.Cog):
     async def on_ready(self):
         print("[Ready] kiss")
 
-def setup(bot):
-    bot.add_cog(kiss(bot))
+async def setup(bot):
+    await bot.add_cog(kiss(bot))

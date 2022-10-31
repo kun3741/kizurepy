@@ -38,5 +38,5 @@ class smoke(commands.Cog):
     async def on_ready(self):
         print("[Ready] smoke")
 
-def setup(bot):
-    bot.add_cog(smoke(bot))
+async def setup(bot):
+    await bot.add_cog(smoke(bot))

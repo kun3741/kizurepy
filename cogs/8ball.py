@@ -27,7 +27,7 @@ class ball(commands.Cog):
         fortune = random.choice(responses)
         embed=discord.Embed(title="🎱Магічна кулька заговорила!🎱", color = 0xff4d94)
         embed.add_field(name=f'*{ctx.author.name}, кулька говорить...*', value=f'**{fortune}**')
-        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
+        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author))
         await ctx.reply(embed=embed)
         author = ctx.message.author
         guild_name = ctx.guild.name
@@ -37,5 +37,5 @@ class ball(commands.Cog):
     async def on_ready(self):
         print("[Ready] 8ball") 
 
-def setup(bot):
-    bot.add_cog(ball(bot))
+async def setup(bot):
+    await bot.add_cog(ball(bot))

@@ -2,9 +2,13 @@ import discord
 from discord.ext import commands
 from config import settings
 import os
+import asyncio
 from asyncio import sleep
 
-bot = commands.Bot(command_prefix = settings['prefix'], ntents=discord.Intents.all())
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix = settings['prefix'], intents=intents)
 
 bot.remove_command("help")
 
@@ -43,9 +47,10 @@ async def load(ctx, extension):
         await ctx.send("You are not allowed to use this command.")
 
 
-for filename in os.listdir("./cogs"):
-    if filename.endswith(".py"):
-        bot.load_extension(f"cogs.{filename[:-3]}")
+async def load_extensions():
+    for filename in os.listdir("./cogs"):
+        if filename.endswith(".py"):
+            await bot.load_extension(f"cogs.{filename[:-3]}")
 
 
 
@@ -69,4 +74,9 @@ async def on_ready():
         await sleep(20)
 
 
-bot.run(settings["token"])
+async def main():
+    async with bot:
+        await load_extensions()
+        await bot.start(settings["token"])
+
+asyncio.run(main())

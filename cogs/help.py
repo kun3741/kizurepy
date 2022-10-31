@@ -28,5 +28,5 @@ class help(commands.Cog):
     async def on_ready(self):
         print("[Ready] cmd & help")
 
-def setup(bot):
-    bot.add_cog(help(bot))
+async def setup(bot):
+    await bot.add_cog(help(bot))

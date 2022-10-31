@@ -26,7 +26,7 @@ class sad(commands.Cog):
         ]
 
         embed.set_image(url = random.choice(SAD))
-        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
+        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author))
         await ctx.reply(embed=embed)
         author = ctx.message.author
         guild_name = ctx.guild.name
@@ -36,5 +36,5 @@ class sad(commands.Cog):
     async def on_ready(self):
         print("[Ready] sad")
 
-def setup(bot):
-    bot.add_cog(sad(bot))
+async def setup(bot):
+    await bot.add_cog(sad(bot))

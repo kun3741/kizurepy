@@ -25,7 +25,7 @@ class dance(commands.Cog):
         embed = discord.Embed(title=f'**{ctx.author.name} танцює!**'.format(), color = 0xff4d94)
 
         embed.set_image(url = random.choice(DANCE))
-        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
+        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author))
         await ctx.reply(embed=embed)
         author = ctx.message.author
         guild_name = ctx.guild.name
@@ -36,5 +36,5 @@ class dance(commands.Cog):
     async def on_ready(self):
         print("[Ready] dance")
 
-def setup(bot):
-    bot.add_cog(dance(bot))
+async def setup(bot):
+    await bot.add_cog(dance(bot))

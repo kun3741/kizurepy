@@ -14,7 +14,7 @@ class rpanda(commands.Cog):
 
         embed = discord.Embed(color = 0xff4d94, title = 'Червона панда!🐻') 
         embed.set_image(url = json_data['link'])
-        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name)) 
+        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author)) 
         await ctx.reply(embed=embed)
         author = ctx.message.author
         guild_name = ctx.guild.name
@@ -25,5 +25,5 @@ class rpanda(commands.Cog):
     async def on_ready(self):
         print("[Ready] rpanda")
 
-def setup(bot):
-    bot.add_cog(rpanda(bot))
+async def setup(bot):
+    await bot.add_cog(rpanda(bot))

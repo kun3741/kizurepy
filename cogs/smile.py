@@ -27,7 +27,7 @@ class smile(commands.Cog):
         embed = discord.Embed(title=f'**{ctx.author.name} посміхається.**'.format(), color = 0xff4d94)
 
         embed.set_image(url = random.choice(SMILE))
-        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author.name))
+        embed.set_footer(text="Used by {}. | © Kizure, 2022. | Слава Україні.".format(ctx.message.author))
         await ctx.reply(embed=embed)
         author = ctx.message.author
         guild_name = ctx.guild.name
@@ -38,5 +38,5 @@ class smile(commands.Cog):
     async def on_ready(self):
         print("[Ready] smile")
 
-def setup(bot):
-    bot.add_cog(smile(bot))
+async def setup(bot):
+    await bot.add_cog(smile(bot))
