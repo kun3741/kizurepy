@@ -1,5 +1,5 @@
 settings = {
-    'token': 'MTAzNjIyODg3NzkxMzE3ODIwNQ.G_1s9R.TsjEtD2JVUNnGdZQckT5s_UiraNfopTlSQpye0',
+    'token': 'TOKEN',
     'bot': 'Kizure',
     'id': 1036228877913178205,
     'prefix': 'k.',
